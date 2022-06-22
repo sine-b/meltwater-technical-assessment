@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
+
+import UserInput from './components/UserInput/UserInput';
+import RedactedDisplay from './components/RedactedDisplay';
+
+import { testGetCensor } from './api/api';
+
 import './App.css';
 
 function App() {
+  const [doc, setDoc] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   testGetCensor().then((response) => {
+  //     setDoc(response);
+  //     setIsLoading(false);
+  //   });
+  // }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserInput onFileCensored={setDoc} handleLoading={setIsLoading} />
+      <RedactedDisplay isLoading={isLoading} text={doc} />
     </div>
   );
 }

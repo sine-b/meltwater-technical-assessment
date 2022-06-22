@@ -1,0 +1,14 @@
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-button {
+  width: 10em;
+  margin-top: 1em;
+}

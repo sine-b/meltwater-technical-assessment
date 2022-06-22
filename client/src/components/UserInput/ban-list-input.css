@@ -1,0 +1,8 @@
+.ban-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ban-list-textarea {
+  height: 100px;
+}
